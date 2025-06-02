@@ -1,0 +1,7 @@
+@import "https://rsms.me/inter/inter.css";
+
+@import "tailwindcss";
+
+:root {
+  --font-sans: "Inter var", sans-serif;
+}
