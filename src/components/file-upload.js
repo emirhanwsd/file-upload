@@ -29,6 +29,10 @@ const FileUpload = () => {
 
   const removeFile = (file) => {
     setFiles((files) => files.filter((oldFile) => oldFile.id !== file.id));
+
+    if (files.length === 1) {
+      setIsUploading(false);
+    }
   };
 
   const updateFile = (file, progress) => {
@@ -54,6 +58,7 @@ const FileUpload = () => {
           headers: {
             "Content-Type": "multipart/form-data",
           },
+          timeout: 5000,
           onUploadProgress: (event) => {
             const progress = Math.round((event.loaded * 100) / event.total);
 
